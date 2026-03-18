@@ -1,17 +1,24 @@
 import random
-
-words = [
-    "python",
-    "programa",
-    "variable",
-    "funcion",
-    "bucle",
-    "cadena",
-    "entero",
-    "lista",
-]
-
-word = random.choice(words)
+# agrego mas palabras y mas categorias
+categorias = {
+    "programacion": ["python", "programa", "variable", "funcion", "bucle", "cadena", "entero", "lista"],
+    "animales": ["perro", "gato", "elefante", "jirafa", "tigre", "caballo", "conejo", "delfin"],
+    "ciudades": ["paris", "roma", "londres", "necochea", "pinamar", "moscu", "viena", "budapest"],
+    "deportes": ["futbol", "tenis", "natacion", "ciclismo", "boxeo", "rugby", "voley", "basquet"],
+    "comidas": ["pizza", "pasta", "asado", "empanada", "milanesa", "sushi", "hamburgesa", "tacos"],
+    "frutas": ["manzana", "banana", "naranja", "uva", "pera", "mango", "sandia", "frutilla"],
+}
+#muestro las categorias
+print("Categorías disponibles:")
+for categoria in categorias:
+    print(f"- {categoria}")
+#con esta iteracion nos aseguramos que no haya errores en el ingreso de la categoria    
+categoria_elegida = input("Elegí una categoría: ")
+while categoria_elegida not in categorias:
+    print("Categoría no válida, intentá de nuevo.")
+    categoria_elegida = input("Elegí una categoría: ")
+    
+word = random.choice(categorias[categoria_elegida])
 guessed = []
 attempts = 6
 puntaje = 6
